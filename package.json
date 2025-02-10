@@ -1,0 +1,27 @@
+{
+  "name": "create-memecoin-site",
+  "version": "1.0.2",
+  "main": "index.js",
+  "bin": {
+    "create-memecoin-site": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "gatsby",
+    "memecoin",
+    "generator",
+    "template"
+  ],
+  "author": "rataprns",
+  "license": "MIT",
+  "description": "CLI tool to generate customizable websites for memecoins using Gatsby.",
+  "type": "module",
+  "dependencies": {
+    "@inquirer/prompts": "^7.3.1",
+    "inquirer": "^12.4.1",
+    "simple-git": "^3.27.0"
+  }
+}
