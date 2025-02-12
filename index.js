@@ -22,6 +22,7 @@ const questions = [
   { type: 'input', name: 'homeDescription', message: 'What would you like the home description to be?', default: 'The most memeable memecoin in existence. The dogs have had their day.' },
   { type: 'input', name: 'aboutDescription', message: 'What would you like the about description to be?', default: 'This is your chance to shine! Write an epic and captivating description that truly captures the essence of your memecoin. Be creative, make it unforgettable, and ensure no one can ignore it!' },
   { type: 'select', name: 'selectedTheme', message: 'Select your site theme:', choices: ['deepSea', 'dark', 'light', 'sunset','matrix','solarized','pastel'], default: 'deepSea' },
+  { type: 'select', name: 'selectedHeader', message: 'Select your header animation:', choices: ['default', 'sliding', 'fadeIn'], default: 'default' },
   { type: 'select', name: 'selectedBlockchain', message: 'Select your blockchain:', choices: ['solana', 'ethereum'], default: 'solana' },
   { type: 'input', name: 'tokenSupply', message: 'What is the total supply of your token?', default: '420,690,000,000,001' },
   { type: 'input', name: 'taxes', message: 'What taxes will your memecoin have?', default: 'No taxes, No Bullshit' },
