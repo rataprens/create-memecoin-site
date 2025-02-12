@@ -1,22 +1,26 @@
-# create-memecoin-site
 
-🚀 **A CLI tool to generate customizable websites for memecoins using Gatsby.**
+# 🚀 Memecoin Website Generator
 
-## 📌 Introduction
+The ultimate CLI tool to create sleek, customizable websites for your memecoin in minutes.
 
-`create-memecoin-site` is a command-line tool that helps you quickly generate a complete website for your memecoin. It automates the process of setting up a Gatsby-based site with customizable themes, blockchain options, and content tailored to your memecoin project.
+## 🌟 What is it?
 
-## 🔧 Installation
+`create-memecoin-site` is a command-line tool that generates modern, responsive websites for your memecoin project. Built with Gatsby, it offers:
 
-You can run the tool directly using `npx` (recommended) or install it globally.
+- **Customizable themes:** Choose from dark, light, cyberpunk, and more.
+- **Blockchain integration:** Supports Ethereum and Solana.
+- **Dynamic content:** Add tokenomics, roadmaps, and step-by-step guides for users.
+- **Quick setup:** Get your site up and running in seconds.
 
-### Option 1: Run directly with npx
+## 🛠 Installation
+
+### Using npx (recommended)
 
 ```sh
 npx create-memecoin-site
 ```
 
-### Option 2: Install globally
+### Or install it globally
 
 ```sh
 npm install -g create-memecoin-site
@@ -28,122 +32,27 @@ Then run:
 create-memecoin-site
 ```
 
-## 🚀 Usage
+## 🚀 How it Works
 
-After running the command, the CLI will guide you through a series of prompts to configure your memecoin site.
+1. **Answer a few prompts:** Provide your memecoin's name, symbol, contract address, and more.
+2. **Customize your site:** Choose a theme, blockchain, and background shape.
+3. **Generate your template:** The tool creates a ready-to-use Gatsby project tailored to your memecoin.
 
-### Step 1: Provide Basic Information
+## 🎨 Features
 
-The first set of prompts will ask for details about your project:
-
-- **Site Name** – The name of your site.
-- **Folder Name** – The directory where the site will be created.
-- **Memecoin Name** – The name of your token.
-- **Symbol** – The symbol of your token (e.g., \$PEPE).
-- **Contract Address** – The smart contract address of your memecoin.
-
-### Step 2: Customize Your Site
-
-You will be asked to provide additional details:
-
-- **Site Title** – The title that appears in the browser tab.
-- **Footer Description** – A short text for the footer.
-- **Home Page Description** – A brief description for the homepage.
-- **About Page Description** – Details about your project.
-- **Disclaimer Message** – Any legal or important disclaimers.
-
-### Step 3: Choose Your Theme and Blockchain
-
-You can select the visual style and blockchain compatibility:
-
-- **Site Theme**: `deepSea`, `dark`, `light`, `solarized`, `cyberpunk`, `matrix`
-- **Blockchain**: `Solana`, `Ethereum`
-
-### Step 4: Configure Tokenomics
-
-Set the following token-related details:
-
-- **Total Supply** – e.g., `420,690,000,000,001`
-- **Taxes** – e.g., `No taxes, No Bullshit`
-- **Burnt LP Status** – e.g., `LP tokens are burnt, and contract ownership is renounced.`
-
-### Step 5: Select Background Shape
-
-Choose a background shape to personalize your website:
-
-- Options: `circle`, `square`, `triangle`, `heart`, `wave`, `ellipse`
-
-### Step 6: Confirm and Generate the Site
-
-After providing all the details, you will be asked to confirm. If you proceed, the tool will:
-
-1. Clone the base template from the GitHub repository.
-2. Update the `siteConfig.json` file with your inputs.
-3. Generate the final site in the selected folder.
-4. Display next steps to run the project.
-
-## 📂 Project Structure
-
-Once created, your project folder will look like this:
-
-```
-memecoin-site/
-│── src/
-│   ├── components/
-│   ├── pages/
-│   ├── styles/
-│   ├── config/
-│   │   ├── siteConfig.json  # Stores the project settings
-│── static/
-│── gatsby-config.js
-│── package.json
-│── README.md
-```
-
-## ▶️ Running the Site
-
-After generating the project, navigate to the folder and install dependencies:
-
-```sh
-cd memecoin-site
-npm install
-```
-
-Then start the development server:
-
-```sh
-npm run develop
-```
-
-Your memecoin site will be available at `http://localhost:8000`.
-
-## 🛠 Customization
-
-After generating the site, you can customize it further by editing the files in `src/` and updating `siteConfig.json`.
-
-## ⚡ Troubleshooting
-
-If you encounter issues:
-
-- Ensure you have Node.js installed (`node -v` to check version).
-- Run `npm install` again to ensure dependencies are installed.
-- Delete the `node_modules` folder and `package-lock.json`, then reinstall dependencies:
-  ```sh
-  rm -rf node_modules package-lock.json
-  npm install
-  ```
+- **Themes:** deepSea, dark, light, cyberpunk, matrix, and more.
+- **Blockchain guides:** Step-by-step instructions for Ethereum and Solana.
+- **Roadmap section:** Showcase your project's future plans.
+- **Dynamic marquee text:** Add scrolling announcements like 🚀 New Features! or 🔥 Hot Deals!.
 
 ## 📜 License
 
-This project is licensed under the MIT License.
+MIT License. Free to use, modify, and share.
 
-## 🙌 Contributing
+## 🙌 Contribute
 
-Feel free to submit issues or pull requests to improve this tool.
+Found a bug or have an idea? Open an issue or submit a pull request!
 
-## 🌎 Follow Us
+---
 
-Stay updated on new features and improvements!
-
-Happy building! 🚀
-
+Launch your memecoin in style. Happy building! 🚀
