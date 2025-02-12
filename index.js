@@ -4,6 +4,7 @@ import { input, confirm, select } from '@inquirer/prompts';
 import simpleGit from 'simple-git';
 import fs from 'fs';
 import path from 'path';
+import { exec } from 'child_process'; // Importar exec para ejecutar comandos
 
 process.stdin.setMaxListeners(20);
 
@@ -44,6 +45,7 @@ async function createSite() {
       }
     });
 
+    // Recopilamos las respuestas del usuario
     for (let question of questions) {
       try {
         let answer;
@@ -70,9 +72,11 @@ async function createSite() {
     const proceed = await confirm({ message: 'Shall we proceed with this setup?', default: true });
 
     if (proceed) {
-      console.log('Creating site from template...');
+      // Paso 1: Clonar el repositorio
+      console.log('Cloning site template...');
       await git.clone(repoUrl, path.join(process.cwd(), answers.folderName));
 
+      // Paso 2: Modificar la configuración del sitio
       const siteConfigPath = path.join(answers.folderName, 'src/config/siteConfig.json');
       const siteConfig = JSON.parse(fs.readFileSync(siteConfigPath, 'utf-8'));
 
@@ -84,7 +88,52 @@ async function createSite() {
 
       fs.writeFileSync(siteConfigPath, JSON.stringify(siteConfig, null, 2));
       console.log(`Site created in folder: ${answers.folderName}`);
-      console.log('Run `npm install` to install dependencies.');
+
+      // Paso 3: Cambiar el directorio a la carpeta donde se clonó el repositorio
+      process.chdir(path.join(process.cwd(), answers.folderName));
+
+      // Paso 4: Instalar dependencias
+      console.log('Installing dependencies...');
+      exec('npm install', (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error during installation: ${error}`);
+          return;
+        }
+
+        // Paso 5: Informar al usuario que la instalación ha terminado
+        console.log('Dependencies installed successfully.');
+        console.log(stdout);
+        if (stderr) {
+          console.error(stderr);
+        }
+
+        // Preguntar al usuario si desea iniciar el servidor
+        (async () => {
+          const shouldStartServer = await confirm({
+            message: 'Do you want to start the development server now?',
+            default: true
+          });
+
+          if (shouldStartServer) {
+            // Paso 6: Iniciar el servidor de desarrollo
+            console.log('Starting development server...');
+            exec('npm run develop', (error, stdout, stderr) => {
+              if (error) {
+                console.error(`Error during server start: ${error}`);
+                return;
+              }
+
+              console.log('Development server started successfully.');
+              console.log(stdout);
+              if (stderr) {
+                console.error(stderr);
+              }
+            });
+          } else {
+            console.log('Development server not started. You can start it later by running `npm run develop`.');
+          }
+        })();
+      });
     } else {
       console.log('Setup canceled.');
     }
