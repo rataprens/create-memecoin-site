@@ -19,8 +19,8 @@ const questions = [
   { type: 'input', name: 'contractAddress', message: 'What is the contract address of your memecoin?' },
   { type: 'input', name: 'siteTitle', message: 'What would you like the title of the site to be?', default: 'My Memecoin' },
   { type: 'input', name: 'footerDescription', message: 'What would you like the footer description to be?', default: '© 2024 by memecoin, All rights reserved!' },
-  { type: 'input', name: 'homeDescription', message: 'What would you like the home description to be?' },
-  { type: 'input', name: 'aboutDescription', message: 'What would you like the about description to be?' },
+  { type: 'input', name: 'homeDescription', message: 'What would you like the home description to be?', default: 'The most memeable memecoin in existence. The dogs have had their day.' },
+  { type: 'input', name: 'aboutDescription', message: 'What would you like the about description to be?', default: 'This is your chance to shine! Write an epic and captivating description that truly captures the essence of your memecoin. Be creative, make it unforgettable, and ensure no one can ignore it!' },
   { type: 'select', name: 'selectedTheme', message: 'Select your site theme:', choices: ['deepSea', 'dark', 'light', 'sunset','matrix','solarized','pastel'], default: 'deepSea' },
   { type: 'select', name: 'selectedBlockchain', message: 'Select your blockchain:', choices: ['solana', 'ethereum'], default: 'solana' },
   { type: 'input', name: 'tokenSupply', message: 'What is the total supply of your token?', default: '420,690,000,000,001' },
@@ -107,32 +107,15 @@ async function createSite() {
           console.error(stderr);
         }
 
-        // Preguntar al usuario si desea iniciar el servidor
-        (async () => {
-          const shouldStartServer = await confirm({
-            message: 'Do you want to start the development server now?',
-            default: true
-          });
-
-          if (shouldStartServer) {
-            // Paso 6: Iniciar el servidor de desarrollo
-            console.log('Starting development server...');
-            exec('npm run develop', (error, stdout, stderr) => {
-              if (error) {
-                console.error(`Error during server start: ${error}`);
-                return;
-              }
-
-              console.log('Development server started successfully.');
-              console.log(stdout);
-              if (stderr) {
-                console.error(stderr);
-              }
-            });
-          } else {
-            console.log('Development server not started. You can start it later by running `npm run develop`.');
-          }
-        })();
+        // Instrucciones finales
+        console.log(`
+1. Dependencies have been installed.
+2. Now, change to your project folder if you're not already there:
+    cd ${answers.folderName}
+3. Start the development server with the following command:
+    npm run develop
+    Your site should now be running on http://localhost:8000.
+`);
       });
     } else {
       console.log('Setup canceled.');
