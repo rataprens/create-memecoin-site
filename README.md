@@ -101,18 +101,19 @@ This file includes all the themes and their respective styles, allowing full cus
 
 To preview and change theme settings live, you need to unlock the theme selector functionality in the code.
 
-In the pages/index.tsx file, you will find the following lines:
+In the `pages/index.tsx` file, you will find the following lines:
 ```tsx
 {/* <ShapeSelectorFloating onShapeChange={handleShapeChange} />
 <ThemeSelectorFloating></ThemeSelectorFloating> 
 <ClearStorageButton></ClearStorageButton> */}
 ```
 
-For development purposes only, remove the comments around these lines to enable the live theme selector. In production, be sure to comment these lines back to prevent any changes.
-
-Note: The changes made through these live selectors are only for previewing purposes and will persist in the localStorage on the client side while in development mode. These changes can be cleared by using the ClearStorageButton component, which will reset the theme and settings.
-
-The actual theme settings that dictate the appearance of your site are controlled by the siteConfig.json file, which is the one that actually dictates the theme and configuration of your site.
+> **⚠️ Note:**  
+> For development purposes only, remove the comments around these lines to enable the live theme selector. In production, be sure to comment these lines back to prevent any changes.
+>
+> The changes made through these live selectors are only for previewing purposes and will persist in the localStorage on the client side while in development mode. These changes can be cleared by using the `ClearStorageButton` component, which will reset the theme and settings.
+>
+> The actual theme settings that dictate the appearance of your site are controlled by the `siteConfig.json` file, which is the one that actually dictates the theme and configuration of your site.
 
 ## 📜 License
 
