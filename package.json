@@ -1,6 +1,6 @@
 {
   "name": "create-memecoin-site",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "index.js",
   "bin": {
     "create-memecoin-site": "index.js"
